@@ -70,7 +70,47 @@ function getInfoOpportunity(opportunityId) {
       });
 }
 
+
+// function getAllJobs() {
+    
+// }
+
+// function getAllPeople(opts) {
+//     return new Promise((resolve, reject) => {
+//         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+//         const { size, offset } = opts;
+//         const url = 'https://search.torre.co/people/_search/?page=0&aggregate=true&offset=' + offset + '&size=' + size;
+
+//         axios.post(
+//         url
+//         )
+//         .then((response) => {
+//             const responseData = {
+//             status: response.status,
+//             data: response.data
+//             };
+//             resolve(responseData);
+//         })
+//         .catch((error) => {
+//             if (error.response) {
+//             const responseData = {
+//                 status: error.response.status,
+//                 error: error.response.data.error,
+//                 message: error.response.data.message
+//             };
+//             resolve(responseData);
+//             } else if (error.request) {
+//             reject(error.request);
+//             } else {
+//             reject(error.message);
+//             }
+//         });
+//       });
+// }
+
 module.exports = {
     getInfoByUsername,
-    getInfoOpportunity
+    getInfoOpportunity,
+    // getAllJobs,
+    // getAllPeople
 };
