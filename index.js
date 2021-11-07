@@ -2,7 +2,7 @@ var cors = require('cors')
 const express = require('express')
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const router = require('./routers/torre.api');
+const router = require('./routers');
 
 const app = express()
 
@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// router(app);
+router(app);
 
 app.get('/', (req, res) => {
   res.send(`App listening at http://localhost:${PORT}`)
