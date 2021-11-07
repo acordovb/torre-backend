@@ -70,7 +70,31 @@ function getInfoOpportunity(opportunityId) {
       });
 }
 
+
+// function getAllJobs() {
+    
+// }
+
+function getAllPeople() {
+    return new Promise((resolve, reject) => {
+        const { skills, size, offset } = opts;
+    
+        if (typeof skills === 'undefined') {
+          reject(new Error('Parameter not defined or empty'));
+        } else {
+          const params = {
+            skills: skills.split(',')
+          };
+    
+          
+          
+        }
+      });
+}
+
 module.exports = {
     getInfoByUsername,
-    getInfoOpportunity
+    getInfoOpportunity,
+    // getAllJobs,
+    getAllPeople
 };
