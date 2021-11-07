@@ -29,9 +29,9 @@ app.use(function (req, res, next) {
 router(app);
 
 app.get('/', (req, res) => {
-  res.send(`App listening at http://localhost:${PORT}`)
+  res.send(`App listening at https://torre-back-alealcor.herokuapp.com/`)
 })
 
 app.listen(PORT, () => {
-  console.log(`App listening at http://localhost:${PORT}`)
+  console.log(`App listening at https://torre-back-alealcor.herokuapp.com/`)
 })
