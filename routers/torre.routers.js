@@ -64,31 +64,31 @@ router.get('/opportunities/:id', function(req, res){
   
 // })
 
-router.post('/people/', function(req, res){
-  let opts = {
-    skills: req.body.skills || '',
-    size: req.body.size || 5,
-    offset: req.body.offset || 0
-  }
-  try {
-      torreController.getAllPeople(opts)
-        .then((result) => {
-            if ((typeof (result) !== 'undefined' && result.length > 0) || (typeof (result) === 'object')) {
-              if (result.status === HttpStatusCode.OK){
-                res.status(HttpStatusCode.OK).send(result.data);
-              }else{
-                res.status(result.status).send(result.data);
-              }
-            } else {
-              response.error(req, res);
-            }
-          })
-          .catch((e) => {
-            console.error(error.name + ': ' + e.message)
-          });   
-  } catch (error) {
-      console.error(error.name + ': ' + e.message)
-  }
-})
+// router.post('/people/', function(req, res){
+//   let opts = {
+//     size: 5,
+//     offset: 0
+//   }
+  
+//   try {
+//       torreController.getAllPeople(opts)
+//         .then((result) => {
+//             if ((typeof (result) !== 'undefined' && result.length > 0) || (typeof (result) === 'object')) {
+//               if (result.status === HttpStatusCode.OK){
+//                 res.status(HttpStatusCode.OK).send(result.data);
+//               }else{
+//                 res.status(result.status).send(result.data);
+//               }
+//             } else {
+//               response.error(req, res);
+//             }
+//           })
+//           .catch((e) => {
+//             console.error(error.name + ': ' + e.message)
+//           });   
+//   } catch (error) {
+//       console.error(error.name + ': ' + e.message)
+//   }
+// })
 
 module.exports = router;

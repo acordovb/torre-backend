@@ -75,26 +75,42 @@ function getInfoOpportunity(opportunityId) {
     
 // }
 
-function getAllPeople() {
-    return new Promise((resolve, reject) => {
-        const { skills, size, offset } = opts;
-    
-        if (typeof skills === 'undefined') {
-          reject(new Error('Parameter not defined or empty'));
-        } else {
-          const params = {
-            skills: skills.split(',')
-          };
-    
-          
-          
-        }
-      });
-}
+// function getAllPeople(opts) {
+//     return new Promise((resolve, reject) => {
+//         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+//         const { size, offset } = opts;
+//         const url = 'https://search.torre.co/people/_search/?page=0&aggregate=true&offset=' + offset + '&size=' + size;
+
+//         axios.post(
+//         url
+//         )
+//         .then((response) => {
+//             const responseData = {
+//             status: response.status,
+//             data: response.data
+//             };
+//             resolve(responseData);
+//         })
+//         .catch((error) => {
+//             if (error.response) {
+//             const responseData = {
+//                 status: error.response.status,
+//                 error: error.response.data.error,
+//                 message: error.response.data.message
+//             };
+//             resolve(responseData);
+//             } else if (error.request) {
+//             reject(error.request);
+//             } else {
+//             reject(error.message);
+//             }
+//         });
+//       });
+// }
 
 module.exports = {
     getInfoByUsername,
     getInfoOpportunity,
     // getAllJobs,
-    getAllPeople
+    // getAllPeople
 };
