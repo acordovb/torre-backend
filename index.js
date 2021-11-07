@@ -1,9 +1,12 @@
 var cors = require('cors')
 const express = require('express')
 const dotenv = require('dotenv');
+const morgan = require('morgan');
+const router = require('./routers/torre.api');
+
+const app = express()
 
 dotenv.config();
-const app = express()
 
 const {
       PORT = 3000,
@@ -12,6 +15,9 @@ const {
 
 app.use(cors());
 
+// Middlewares
+app.use(morgan('dev'));
+
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST,PUT,GET,DELETE,PATCH');
@@ -19,6 +25,8 @@ app.use(function (req, res, next) {
 
   next();
 });
+
+// router(app);
 
 app.get('/', (req, res) => {
   res.send(`App listening at http://localhost:${PORT}`)
