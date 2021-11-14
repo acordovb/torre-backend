@@ -15,7 +15,6 @@ const {
 
 app.use(cors());
 
-// Middlewares
 app.use(morgan('dev'));
 
 app.use(function (req, res, next) {
@@ -29,9 +28,9 @@ app.use(function (req, res, next) {
 router(app);
 
 app.get('/', (req, res) => {
-  res.send(`App listening at https://torre-back-alealcor.herokuapp.com/`)
+  res.send(`App listening at ${process.env.BACKEND_URL_API}`)
 })
 
 app.listen(PORT, () => {
-  console.log(`App listening at https://torre-back-alealcor.herokuapp.com/`)
+  console.log(`App listening at ${process.env.BACKEND_URL_API}`)
 })
