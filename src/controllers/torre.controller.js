@@ -59,7 +59,6 @@ function jobInfo (req, res) {
 
 function opportunitiesInfo (req, res) {
   try {
-    console.log(req.query)
     const opts = {
       next: req.query.next || "",
       previous: req.query.previous || "",
