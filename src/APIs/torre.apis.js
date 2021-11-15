@@ -70,11 +70,18 @@ function getInfoOpportunity (opportunityId) {
 
 function postSearchJobsAndGigs (opts) {
   return new Promise((resolve, reject) => {
-    // eslint-disable-next-line no-unused-vars
-    const { size, offset } = opts
+    const {next, previous, size, offset } = opts
     const data = { }
-    const url = process.env.TORRE_API_ALL_OPPORTUNITIES
+    let url = process.env.TORRE_API_ALL_OPPORTUNITIES
 
+    if (next) {
+      url = process.env.TORRE_API_ALL_OPPORTUNITIES + "after=" + next
+    }else if(previous){
+      url = process.env.TORRE_API_ALL_OPPORTUNITIES + "before=" + previous
+    }else {
+      url = process.env.TORRE_API_ALL_OPPORTUNITIES
+    }
+    
     axios
       .post(url, { todo: data })
       .then(res => {
@@ -102,10 +109,8 @@ function postSearchJobsAndGigs (opts) {
   })
 }
 
-function postSearchPeople (opts) {
+function postSearchPeople ( ) {
   return new Promise((resolve, reject) => {
-    // eslint-disable-next-line no-unused-vars
-    const { size, offset } = opts
     const data = { }
     const url = process.env.TORRE_API_PEOPLE
 
