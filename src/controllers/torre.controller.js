@@ -59,7 +59,10 @@ function jobInfo (req, res) {
 
 function opportunitiesInfo (req, res) {
   try {
+    console.log(req.query)
     const opts = {
+      next: req.query.next || "",
+      previous: req.query.previous || "",
       size: process.env.DEFAULT_SIZE,
       offset: process.env.DEFAULT_OFFSET
     }
@@ -85,11 +88,7 @@ function opportunitiesInfo (req, res) {
 
 function allPeopleInfo (req, res) {
   try {
-    const opts = {
-      size: process.env.DEFAULT_SIZE,
-      offset: process.env.DEFAULT_OFFSET
-    }
-    torreAPI.postSearchPeople(opts)
+    torreAPI.postSearchPeople( )
       .then((result) => {
         if ((typeof (result) !== 'undefined' && result.length > 0) || (typeof (result) === 'object')) {
           if (result.status === HttpStatusCode.OK) {
