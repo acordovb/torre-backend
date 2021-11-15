@@ -1,7 +1,7 @@
-const torre = require('./torre.routers');
+const torre = require('./torre.routers')
 
 const router = function (server) {
-  server.use('/torre', torre);
-};
+  server.use('/torre', torre)
+}
 
-module.exports = router;
+module.exports = router

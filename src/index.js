@@ -1,31 +1,30 @@
-var cors = require('cors')
+const cors = require('cors')
 const express = require('express')
-const dotenv = require('dotenv');
-const morgan = require('morgan');
-const router = require('./routers');
+const dotenv = require('dotenv')
+const morgan = require('morgan')
+const router = require('./routers')
 
 const app = express()
 
-dotenv.config();
+dotenv.config()
 
 const {
-      PORT = 3000,
-      NODE_ENV = 'development'
-} = process.env;
+  PORT = 3000
+} = process.env
 
-app.use(cors());
+app.use(cors())
 
-app.use(morgan('dev'));
+app.use(morgan('dev'))
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'POST,PUT,GET,DELETE,PATCH');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, apikey');
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'POST,PUT,GET,DELETE,PATCH')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, apikey')
 
-  next();
-});
+  next()
+})
 
-router(app);
+router(app)
 
 app.get('/', (req, res) => {
   res.send(`App listening at ${process.env.BACKEND_URL_API}`)
